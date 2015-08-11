@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="fr">
+    <meta charset="UTF-8">
+    <title>bluRedactor dev</title>
+    <link rel="stylesheet" href="assets/css/lib/normalize.css"/>
+    <link rel="stylesheet" href="assets/css/bluRedactor.theme.standard.css"/>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        :after, :before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+            color: #333;
+        }
+        a {
+            font-family: "Open Sans", serif;
+            text-decoration: none;
+            color: #b6a3ff;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #d8d3ff;
+        }
+        .container {
+            width: 980px;
+            display: block;
+            margin: 10px auto;
+        }
+        .container:after, .container:before {
+            display: table;
+            content: " ";
+        }
+        footer {
+            background-color: dimgray;
+            color: #ffffff;
+            padding: 10px 20px;
+            display: block;
+        }
+        .col-md-6 {
+            width: 50%;
+            display: block;
+            float: left;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .text-left {
+            text-align: left;
+        }
+    </style>
+
+</head>
+<body>
+    <header class="container">
+        <h1>bluRedactor</h1>
+        <h2>A jquery HTML5 Wysiwyg Editor (work in progress)</h2>
+    </header>
+    <div class="container">
+        <div class="blu-content"></div>
+    </div>
+    <footer class="container">
+        <div class="col-md-6 text-left">
+            <span class="copyright">BluEstuary</span>
+        </div>
+        <div class="col-md-6 text-right">
+            <span class="author"><a href="https://facebook.com/Bface.Style">Bface007</a></span>
+        </div>
+
+
+    </footer>
+    <script src="assets/js/libs/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/bluRedactor.js"></script>
+</body>
+</html>
