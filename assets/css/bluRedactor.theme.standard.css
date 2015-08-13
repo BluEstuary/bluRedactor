@@ -1,0 +1,123 @@
+.bluRedactor_box {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.bluRedactor_toolbar {
+    display: block;
+    width: 100%;
+    float: left;
+    min-height: 1px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+.bluRedactor_toolbar:before,
+.bluRedactor_toolbar:after,
+.bluRedactor_editor:after,
+.bluRedactor_editor:before,
+.bluRedactor_editor_wrapper:after,
+.bluRedactor_editor_wrapper:before,
+.bluRedactor_toolbar_wrapper:after,
+.bluRedactor_toolbar_wrapper:before {
+    display: table;
+    content: ' ';
+}
+.bluRedactor_toolbar > li {
+    position: relative;
+    float: left;
+    list-style: none;
+    display: block;
+}
+.bluRedactor_toolbar li > a {
+    position: relative;
+    display: block;
+    padding: 6px 10px;
+    background-color: #fff;
+    color: #5d5d5d;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 8px;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+}
+.bluRedactor_toolbar li > a:hover {
+    color: #ffffff;
+    border-color: transparent;
+    background-color: #c3bcd6;
+}
+
+.bluRedactor_toolbar li.active a {}
+
+.bluRedactor_toolbar li.inherit a {}
+
+.bluRedactor_editor {
+    display: block;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+    padding: 10px;
+    outline: none;
+}
+
+.bluRedactor_editor p {}
+
+.bluRedactor_editor a {}
+
+.bluRedactor_editor cite {}
+
+.bluRedactor_editor code,
+.bluRedactor_editor pre {}
+
+.bluRedactor_editor h1,
+.bluRedactor_editor h2,
+.bluRedactor_editor h3,
+.bluRedactor_editor h4,
+.bluRedactor_editor h5 {}
+
+.bluRedactor_editor strong {}
+
+.bluRedactor_editor em {}
+
+.bluRedactor_editor span.underline {}
+
+.bluRedactor_editor span.strikethrough {}
+
+.bluRedactor_editor hr {}
+
+.bluRedactor_editor table {}
+
+.bluRedactor_editor img {}
+
+.bluRedactor_editor img:after {}
+
+.bluRedactor_editor ul,
+.bluRedactor_editor ol {}
+.bluRedactor_bubble {
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    color: #fff;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 1px;
+    height: 50px;
+    -webkit-transition: 0.15s ease-in-out;
+    -moz-transition: 0.15s ease-in-out;
+    -ms-transition: 0.15s ease-in-out;
+    -o-transition: 0.15s ease-in-out;
+    transition: 0.15s ease-in-out;
+}

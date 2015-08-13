@@ -5,6 +5,7 @@
     <title>bluRedactor dev</title>
     <link rel="stylesheet" href="assets/css/lib/normalize.css"/>
     <link rel="stylesheet" href="assets/css/bluRedactor.theme.standard.css"/>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css"/>
     <style>
         * {
             box-sizing: border-box;
@@ -32,6 +33,7 @@
             width: 980px;
             display: block;
             margin: 10px auto;
+            position: relative;
         }
         .container:after, .container:before {
             display: table;
@@ -63,19 +65,97 @@
         <h2>A jquery HTML5 Wysiwyg Editor (work in progress)</h2>
     </header>
     <div class="container">
+        <div class="bubble">
+            <p>yo manito</p>
+        </div>
         <div class="blu-content"></div>
     </div>
     <footer class="container">
         <div class="col-md-6 text-left">
-            <span class="copyright">BluEstuary</span>
+            <span class="copyright">© BluEstuary</span>
         </div>
         <div class="col-md-6 text-right">
-            <span class="author"><a href="https://facebook.com/Bface.Style">Bface007</a></span>
+            <span class="author">by <a href="https://facebook.com/Bface.Style">Bface007</a></span>
         </div>
 
 
     </footer>
+
     <script src="assets/js/libs/jquery-1.11.2.min.js"></script>
     <script src="assets/js/bluRedactor.js"></script>
+    <script>
+        var matrixToArray = function(str) {
+            if (!str || str == 'none') {
+                return [1, 0, 0, 1, 0, 0];
+            }
+
+            return str.match(/(-?[0-9\.]+)/g);
+        };
+
+        var getPreviousTransforms = function(elem) {
+            return elem.css('-webkit-transform') || elem.css('transform') || elem.css('-moz-transform') ||
+                    elem.css('-o-transform') || elem.css('-ms-transform');
+        };
+
+        var getMatrix = function(elem) {
+            var previousTransform = getPreviousTransforms(elem);
+
+            return matrixToArray(previousTransform);
+        };
+
+        var applyTransform = function(elem, transform) {
+            elem.css('-webkit-transform', transform);
+            elem.css('-moz-transform', transform);
+            elem.css('-o-transform', transform);
+            elem.css('-ms-transform', transform);
+            elem.css('transform', transform);
+        };
+
+        var buildTransformString = function(matrix) {
+            return 'matrix(' + matrix[0] +
+                    ', ' + matrix[1] +
+                    ', ' + matrix[2] +
+                    ', ' + matrix[3] +
+                    ', ' + matrix[4] +
+                    ', ' + matrix[5] + ')';
+        };
+
+        var getTranslate = function(elem) {
+            var matrix = getMatrix(elem);
+            return {
+                x: parseInt(matrix[4]),
+                y: parseInt(matrix[5])
+            };
+        };
+
+        var scale = function(elem, _scale) {
+            var matrix = getMatrix(elem);
+            matrix[0] = matrix[3] = _scale;
+            var transform = buildTransformString(matrix);
+            applyTransform(elem, transform);
+        };
+
+        var translate = function(elem, x, y) {
+            var matrix = getMatrix(elem);
+            matrix[4] = x;
+            matrix[5] = y;
+            var transform = buildTransformString(matrix);
+            applyTransform(elem, transform);
+        };
+
+        var rotate = function(elem, deg) {
+            var matrix = getMatrix(elem);
+            var rad1 = deg * (Math.PI / 180);
+            var rad2 = rad1 * -1;
+            matrix[1] = rad1;
+            matrix[2] = rad2;
+            var transform = buildTransformString(matrix);
+            applyTransform(elem, transform);
+        };
+        $('div.blu-content').bluRedactor({}, function (editor) {
+            console.log("bluRedactor", "initialized")
+        });
+
+    </script>
 </body>
 </html>

@@ -1,2 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
+assets/css/font-awesome.css
+npm-debug.log
